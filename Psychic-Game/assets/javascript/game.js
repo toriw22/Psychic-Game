@@ -2,8 +2,6 @@ var computerChoices = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 var computerGuess = computerChoices [Math.floor(Math.random() * computerChoices.length)];
 
-console.log(computerGuess);
-
 var userGuesses = [];
 
 var wins = 0;
@@ -18,19 +16,27 @@ document.querySelector("#losses").innerHTML = "Losses = " + losses;
 
 document.querySelector("#guessesRemaining").innerHTML = "Number of Guesses Remaining = " + guessesRemaining;
 
-document.querySelector("#alreadyGuessed").innerHTML = "Incorrectly Guessed Letters " + userGuesses;
+document.querySelector("#alreadyGuessed").innerHTML = "Incorrectly Guessed Numbers " + userGuesses;
+
 
 function startGame() {
 
-	alert("Guess the letter (a-z) in 10 tries or less! Type your guesses on the keyboard.");
+	alert("Guess the number (1-9) in 4 tries or less! Type your guesses on the keyboard.");
 
-	var guessesRemaining = 4;
+	guessesRemaining = 4;
 
-	var userGuesses = [" "];
+	document.querySelector("#guessesRemaining").innerHTML = "Number of Guesses Remaining = " + guessesRemaining; 
 
+	userGuesses = [];
+
+	document.querySelector("#alreadyGuessed").innerHTML = "Incorrectly Guessed Numbers " + userGuesses;
+
+	computerGuess = computerChoices [Math.floor(Math.random() * computerChoices.length)];
+
+	return computerGuess;
 }
 
-var reset = startGame();
+startGame();
 
 document.onkeyup = function(event) {
 
@@ -41,21 +47,29 @@ document.onkeyup = function(event) {
 	document.querySelector("#alreadyGuessed").innerHTML = "Incorrectly Guessed Numbers " + userGuesses;
 
 	if (userGuess >= 1 && userGuess <= 9) { 
-	if (userGuess == computerGuess) {
-		alert("You Win!");
-		wins ++;
-		document.querySelector("#wins").innerHTML = "Wins = " + wins;
-		
-		reset;
+		if (userGuess == computerGuess) {
+			alert("You Win!");
+			wins ++;
+			document.querySelector("#wins").innerHTML = "Wins = " + wins;
+			
+			startGame();
 
-		return;
+			return;
 
-	}
-	else { 
-		guessesRemaining--;
-		document.querySelector("#guessesRemaining").innerHTML = "Number of Guesses Remaining = " + guessesRemaining;
-		return guessesRemaining;
-	}
+		}
+		else { 
+			guessesRemaining--;
+			document.querySelector("#guessesRemaining").innerHTML = "Number of Guesses Remaining = " + guessesRemaining;
+				if (guessesRemaining == 0) {
+					losses ++;
+					document.querySelector("#losses").innerHTML = "Losses = " + losses;
+					alert("You lose! Loser!");
+					startGame();
+				}				
+
+			return guessesRemaining;
+		}
+	
 	}
 
 	else {
@@ -66,13 +80,10 @@ document.onkeyup = function(event) {
 	return userGuesses.join(", ");
 
 }
-function losing() {
-	if (guessesRemaining == 0) {
-		losses ++;
-	document.querySelector("#losses").innerHTML = "Losses = " + losses;
-	}
-}
-losing();
+
+
+
+
 
 
 	
