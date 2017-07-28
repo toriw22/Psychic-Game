@@ -1,0 +1,43 @@
+body {
+
+    background-color: black;
+    color: #ADD8E6;
+	font-family: 'Julee', cursive;
+}
+
+.box {
+	font-size:20px;
+	color:white;
+	text-align: center;
+	background-color: black ;
+	width: 200px;
+	height:300px;
+}
+
+audio {
+	display: none;
+
+}
+.boxHeader {
+	
+	background-color:black;
+	width:700px;
+	height:500px;
+	position:absolute;
+	top:50px;
+	left:28%;
+
+}
+
+.boxScore {
+	position: absolute;
+	top: 75px;
+	right:5%;
+}
+
+.boxGuesses {
+	position: absolute;
+	top: 75px;
+	left:5%;
+
+}

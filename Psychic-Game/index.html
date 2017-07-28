@@ -1,11 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Julee" rel="stylesheet">
 	<title>Psychic Game</title>
 </head>
 <body>
-
+	<audio autoplay loop>
+  		<source src="assets/sounds/chant.mp3" type="audio/ogg">
+  		<source src="assets/sounds/chant.mp3" type="audio/mpeg">
+		Your browser does not support the audio element.
+	</audio>
+	<div class="box boxGuesses">
+		<span id="guessesRemaining"></span><br><br>
+		<span id="alreadyGuessed"></span><br>
+	</div>
+	<div class="box boxHeader">
+		<h1>Psychic Game</h1>
+		<h2>Guess What Number I'm Thinking of</h2>
+		<img src = "assets/images/psychic1.jpeg" alt="Psychic"/><br>
+		<button onclick="startGame()">Restart</button>
+	</div>
+	<div class="box boxScore">
+		<span id="wins"></span><br><br>
+		<span id="losses"></span><br>
+	</div>
+	
+	
 
 <script type="text/javascript" src="assets/javascript/game.js"></script>
 </body>
