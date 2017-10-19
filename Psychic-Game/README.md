@@ -1,6 +1,6 @@
 # Psychic-Game
 
-Challenge the psychic! The game randomly picks a letter, and the user has to guess which letter the app chose. 
+Challenge the psychic! The Psychic randomly picks a letter, and the user has to guess which letter the app chose. 
 
 The app keeps track of the following items:
 
